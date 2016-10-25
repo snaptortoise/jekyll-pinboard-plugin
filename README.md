@@ -12,7 +12,7 @@ A [Jekyll](https://jekyllrb.com) plugin that makes your tagged [Pinboard](pinboa
  
 ## How To Install
  
-You can move `_plugins/jekyll-pinboard.rb` from this repository into your `_plugins` folder and you should be good to go.
+You can move `lib/jekyll-pinboard.rb` from this repository into your `_plugins` folder and you should be good to go.
  
 ## How To Use
 
