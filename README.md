@@ -27,7 +27,7 @@ First, make sure you've specified your Pinboard token and the tags you want to p
      - tag3
 ````
 
-And so on.
+Etc.
 
  In your templates you can access the data like this:
 
@@ -59,7 +59,12 @@ You'll have access to all of the data associated with these bookmarks that you w
 - toread
 - tags
 
+## GitHub Pages
+
 This is not supported by [GitHub Pages](https://pages.github.com/versions/). You will need to generate your site locally and push it if you want to host on GitHub.
+
+**Note:** If you use this plugin and host yoru generated site on GitHub pages be mindful that **your private API token for Pinboard is included** in `_config.yml`. You probably don't want to publish that publicly!
+
 
 ## Support
 
