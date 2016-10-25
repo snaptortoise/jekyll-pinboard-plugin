@@ -1,8 +1,10 @@
-#  Pinboard Plugin for Jekyll
+#  Jekyll Pinboard Plugin
 
-A [Jekyll](https://jekyllrb.com) plugin that makes your tagged [Pinboard](pinboard.in) bookmarks accessible as a template variable. Useful for managing general bookmark and recommendation pages on your Jekyll site. You can get more creative and use it to keep a portfolio page up to date or simply publish parts of your Pinboard bookmarks in a different format.
+Access your [Pinboard](pinboard.in) data in  [Jekyll](https://jekyllrb.com).
 
-## How It Works
+This  plugin that makes your tagged Pinboard bookmarks  accessible as a template variable in Jekyll. Useful for managing general bookmark and recommendation pages on your Jekyll site. You can get more creative and use it to keep a portfolio page up to date or simply publish parts of your Pinboard bookmarks in a different format.
+
+## How it Works
 
  This plugin registers a Hook that will load all of your Pinboard links for specified tags into a variable you can use in your templates. It's slightly similar to the way Jekly natively handles [data files](https://jekyllrb.com/docs/datafiles/) with two key differences:
  
@@ -10,11 +12,40 @@ A [Jekyll](https://jekyllrb.com) plugin that makes your tagged [Pinboard](pinboa
  - If you're running `jekyll serve --watch` locally the Pinboard data will **not** refresh as content is updated. This is to avoid making gratuitous API calls and bogging down the rebuild.
  
  
-## How To Install
+## How to Install as a Gem
  
+Add this line to your application's Gemfile:
+
+```
+gem 'jekyll-pinboard'
+```
+
+And then execute:
+
+```
+$ bundle
+```
+
+Or install it yourself as:
+
+```
+$ gem install jekyll-pinboard
+```
+
+Once it's installed into your evironment, add it to your `_config.yml`:
+
+```YAML
+gems:
+  - jekyll-pinboard
+```
+
+Then run jekyll <cmd> --safe like normal.
+
+## Lazy Install
+
 You can move `lib/jekyll-pinboard.rb` from this repository into your `_plugins` folder and you should be good to go.
  
-## How To Use
+## How to Use
 
 First, make sure you've specified your Pinboard token and the tags you want to pull data from in your `_config.yml` file. You can find your token at [pinboard.in/settings/password](https://pinboard.in/settings/password). 
 
@@ -41,7 +72,7 @@ As an example, if you specified `travel` as one of your tags and want to iterate
 <ul>
 {% for item in site.pinboard.data.travel %} 
   <li>
-    <a href='{{ item.href}}'>{{ item.description}}</a> - {{ item.extended}}
+    <a href='{{ item.href }}'>{{ item.description }}</a> - {{ item.extended }}
   </li>
 {% endfor %}
 </ul>
@@ -68,4 +99,6 @@ This is not supported by [GitHub Pages](https://pages.github.com/versions/). You
 
 ## Support
 
-It's a very minimal plugin, which I think is its strenght, but pull requests and discussions are welcome. Also, if you're using this plugin on your own Jekyll site let me know! 
+It's a very minimal plugin, which I think is its strength, but pull requests and discussions are welcome. 
+
+If you're using this plugin on your own Jekyll site reach out and let me know! 
