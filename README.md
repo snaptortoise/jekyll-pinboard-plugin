@@ -94,7 +94,7 @@ You'll have access to all of the data associated with these bookmarks that you w
 
 This is not supported by [GitHub Pages](https://pages.github.com/versions/). You will need to generate your site locally and push it if you want to host on GitHub.
 
-**Note:** If you use this plugin and host yoru generated site on GitHub pages be mindful that **your private API token for Pinboard is included** in `_config.yml`. You probably don't want to publish that publicly!
+**Note:** If you use this plugin and host your generated site on GitHub pages be mindful that **your private API token for Pinboard is included** in `_config.yml`. You probably don't want to publish that publicly!
 
 
 ## Support
