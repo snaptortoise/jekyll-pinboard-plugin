@@ -60,17 +60,18 @@ First, make sure you've specified your Pinboard token and the tags you want to p
 
 Etc.
 
- In your templates you can access the data like this:
+ In your templates you can access your Pinboard bookmarks (referred to as `posts` in [the API](https://pinboard.in/api/)) like this:
 
 ```Liquid
-site.pinboard.data['tag']
+site.pinboard.posts.all # An object containing all of your bookmarks  
+site.pinboard.posts.tags.travel # An object containing all posts belonging to a specific tag
 ```
 
 As an example, if you specified `travel` as one of your tags and want to iterate over all those bookmarks you could do something like this:
 
 ```Liquid
 <ul>
-{% for item in site.pinboard.data.travel %} 
+{% for item in site.pinboard.posts.tags.travel %} 
   <li>
     <a href='{{ item.href }}'>{{ item.description }}</a> - {{ item.extended }}
   </li>
@@ -78,7 +79,20 @@ As an example, if you specified `travel` as one of your tags and want to iterate
 </ul>
 ````
 
-You'll have access to all of the data associated with these bookmarks that you would normally see using the Pinboard API. A bookarmk has the following attributes:
+If you wanted to iterate over all of the bookmarks in your account it would look something like this:
+
+```Liquid
+<ul>
+{% for item in site.pinboard.posts.all %} 
+  <li>
+    <a href='{{ item.href }}'>{{ item.description }}</a> - {{ item.extended }}
+  </li>
+{% endfor %}
+</ul>
+````
+
+
+You'll have access to all of the data associated with these bookmarks that you would normally see using the [Pinboard API](https://pinboard.in/api/). A bookmark has the following attributes:
 
 - href
 - description

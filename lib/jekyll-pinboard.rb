@@ -9,15 +9,22 @@ Jekyll::Hooks.register :site, :after_init do |site|
     pinboard_token =  site.config['pinboard']['token']
     pinboard_tags = site.config['pinboard']['tags']
     site.config['pinboard']['data'] = {}
-
-    pinboard_tags.each_with_index do |tag, key|
-      json_data = open("https://api.pinboard.in/v1/posts/all?auth_token=" + pinboard_token + "&format=json&tag=" + tag).read
-      
-      begin        
-        site.config['pinboard']['data'][tag] = JSON.parse(json_data)    
-      rescue
-        puts "Pinboard might be down. There was an error parsing JSON from: " + "https://api.pinboard.in/v1/posts/all?auth_token=" + pinboard_token + "&format=json&tag=" + tag
+    site.config['pinboard']['posts'] = {}
+    site.config['pinboard']['posts']['tags'] = {}
+    
+    # retrieve all the book marks
+    all_posts = JSON.parse(open("https://api.pinboard.in/v1/posts/all?auth_token=" + pinboard_token + "&format=json").read)
+    site.config['pinboard']['posts']['all'] = all_posts
+    
+    # go through all of bookmarks and organize by tag
+    all_posts.each_with_index do |post, key|
+      tags = post['tags'].split(' ')
+      tags.each do |tag|
+        if (site.config['pinboard']['posts']['tags'].include? tag)
+          site.config['pinboard']['posts']['tags'][tag].push(post)
+        else
+          site.config['pinboard']['posts']['tags'][tag] = [post]
+        end
       end
-      
     end
 end
