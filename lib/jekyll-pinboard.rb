@@ -7,8 +7,6 @@ require "json"
 
 Jekyll::Hooks.register :site, :after_init do |site|
     pinboard_token =  site.config['pinboard']['token']
-    pinboard_tags = site.config['pinboard']['tags']
-    site.config['pinboard']['data'] = {}
     site.config['pinboard']['posts'] = {}
     site.config['pinboard']['posts']['tags'] = {}
     
