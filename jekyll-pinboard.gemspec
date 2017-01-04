@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'jekyll-pinboard'
-  s.version     = '0.2.0'
-  s.date        = '2016-11-10'
+  s.version     = '0.2.1'
+  s.date        = '2017-01-04'
   s.summary     = "A Jekyll plugin that makes your Pinboard bookmarks accessible"
   s.description = "This plugin makes your Pinboard bookmarks accessible within your Jekyll templates."
   s.authors     = ["George Mandis"]
