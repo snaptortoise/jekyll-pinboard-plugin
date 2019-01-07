@@ -1,6 +1,6 @@
 # Jekyll Pinboard Plugin
 # https://github.com/snaptortoise/jekyll-pinboard-plugin
-# Author: George Mandis (http://george.mandi.is, https://snaptortoise.com)
+# Author: George Mandis (http://george.mand.is, https://snaptortoise.com)
 
 require "open-uri"
 require "json"
