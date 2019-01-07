@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
     'https://github.com/snaptortoise/jekyll-pinboard-plugin'
   s.license       = 'MIT'
   
-  s.add_runtime_dependency "jekyll", ">= 3.6.3"
+  s.add_runtime_dependency "jekyll", "~> 3.6", ">= 3.6.3"
   
   s.add_development_dependency "json", "~> 2.0", ">= 2.0.1"
 end
