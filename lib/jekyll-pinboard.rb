@@ -11,7 +11,7 @@ Jekyll::Hooks.register :site, :after_init do |site|
     site.config['pinboard']['posts']['tags'] = {}
     
     # retrieve all the book marks
-    all_posts = JSON.parse(open("https://api.pinboard.in/v1/posts/all?auth_token=" + pinboard_token + "&format=json").read)
+    all_posts = JSON.parse(URI.open("https://api.pinboard.in/v1/posts/all?auth_token=" + pinboard_token + "&format=json").read)
     site.config['pinboard']['posts']['all'] = all_posts
     
     # go through all of bookmarks and organize by tag
